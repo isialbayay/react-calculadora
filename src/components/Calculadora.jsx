@@ -126,8 +126,8 @@ export default function Calculadora() {
 
 
     return (
-        <div class="flex flex-col items-center content-center  h-96 w-96 bg-pink-400 rounded-box m-10 shadow-md">
-            <div id="contPantalla" class="flex flex-col  contPantalla pantalla h-18 bg-green-100 w-5/6 max-w-5/6 rounded-box mt-5">
+        <div class="flex flex-col items-center content-center  h-96 w-80 max-w-96 bg-pink-400 rounded-box m-10 shadow-md">
+            <div id="contPantalla" class="flex flex-col pantalla h-18 bg-green-100 w-5/6 max-w-5/6 rounded-box mt-5">
                 <input disabled id="opPrevia" class="grid bg-inherit text-slate-400 text-sm text-end justify-items-end pantalla  w-full  rounded-box p-2"></input>
                 <input disabled id="pantalla" class="grid bg-inherit text-end text-2xl justify-items-end pantalla w-full rounded-box p-2"></input>
             </div>
