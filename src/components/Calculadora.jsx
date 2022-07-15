@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Calculadora() {
     var numero = "";
     var a = "";
@@ -126,9 +127,9 @@ export default function Calculadora() {
 
     return (
         <div class="flex flex-col items-center content-center  h-96 w-96 bg-pink-400 rounded-box m-10 shadow-md">
-            <div class="flex flex-col  pantalla h-18 bg-green-100 w-5/6 max-w-5/6 rounded-box mt-5">
-                <input disabled id="opPrevia" class="grid text-slate-400 text-sm text-end justify-items-end pantalla bg-green-100  w-full  rounded-box p-2"></input>
-                <input disabled id="pantalla" class="grid text-end text-2xl justify-items-end pantalla bg-green-100 w-full rounded-box p-2"></input>
+            <div id="contPantalla" class="flex flex-col  contPantalla pantalla h-18 bg-green-100 w-5/6 max-w-5/6 rounded-box mt-5">
+                <input disabled id="opPrevia" class="grid bg-inherit text-slate-400 text-sm text-end justify-items-end pantalla  w-full  rounded-box p-2"></input>
+                <input disabled id="pantalla" class="grid bg-inherit text-end text-2xl justify-items-end pantalla w-full rounded-box p-2"></input>
             </div>
             <div class="base w-full m-6 flex flex-col items-center">
                 <div class="numeros flex flex-row justify-between w-4/5 m-1">
