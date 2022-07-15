@@ -7,7 +7,7 @@ export default function Calculadora() {
     var b = "";
     var op = "";
     var opPrevia = "";
-           
+
     const agregarNumero = (event, id) => {
         if (op === "") {
             if (aux === 1) {
@@ -30,17 +30,24 @@ export default function Calculadora() {
     };
 
     const agregarOperacion = (event, id) => {
-        if(a===""){
-            numero="0";
+        if (a === "") {
+            numero = "0";
         }
-        if(b===""){
-        numero = numero + document.getElementById(id).getAttribute("value");
-        op = document.getElementById(id).getAttribute("value");
-        document.getElementById("pantalla").setAttribute("value", numero);
-        document.getElementById("opPrevia").setAttribute("value", opPrevia);
+        if (b === "") {
+            if (op !== "") {
+                numero = numero.slice(0, -1);
+            }
+            numero = numero + document.getElementById(id).getAttribute("value");
+            op = document.getElementById(id).getAttribute("value");
+            document.getElementById("pantalla").setAttribute("value", numero);
+            document.getElementById("opPrevia").setAttribute("value", opPrevia);
         }
-        else{
+        else {
             calcularTotal();
+
+            if (op !== "") {
+                numero = numero.slice(0, -1);
+            }
             numero = numero + document.getElementById(id).getAttribute("value");
             op = document.getElementById(id).getAttribute("value");
             document.getElementById("pantalla").setAttribute("value", numero);
@@ -50,7 +57,12 @@ export default function Calculadora() {
 
     const calcularTotal = (event, id) => {
         if (op === "x") {
-            opPrevia = numero+"=";
+            if (b === "") {
+                opPrevia = numero + a + "=";
+                b = a;
+            }else{
+                opPrevia = numero + "=";
+            }
             document.getElementById("pantalla").setAttribute("value", parseFloat(a * b));
             a = parseFloat(a * b);
             numero = a;
@@ -61,7 +73,12 @@ export default function Calculadora() {
             document.getElementById("opPrevia").setAttribute("value", opPrevia);
         }
         if (op === "/") {
-            opPrevia = numero+"=";
+            if (b === "") {
+                opPrevia = numero + a + "=";
+                b = a;
+            }else{
+                opPrevia = numero + "=";
+            }
             document.getElementById("pantalla").setAttribute("value", parseFloat(a / b));
             a = parseFloat(a / b);
             numero = a;
@@ -72,9 +89,14 @@ export default function Calculadora() {
             document.getElementById("opPrevia").setAttribute("value", opPrevia);
         }
         if (op === "+") {
-            opPrevia = numero+"=";
+            if (b === "") {
+                opPrevia = numero + a + "=";
+                b = a;
+            }else{
+                opPrevia = numero + "=";
+            }
             document.getElementById("pantalla").setAttribute("value", parseFloat(a) + parseFloat(b));
-            a = parseFloat(a)+parseFloat(b);
+            a = parseFloat(a) + parseFloat(b);
             numero = a;
             b = "";
             op = "";
@@ -83,7 +105,12 @@ export default function Calculadora() {
             document.getElementById("opPrevia").setAttribute("value", opPrevia);
         }
         if (op === "-") {
-            opPrevia = numero+"=";
+            if (b === "") {
+                opPrevia = numero + a + "=";
+                b = a;
+            }else{
+                opPrevia = numero + "=";
+            }
             document.getElementById("pantalla").setAttribute("value", parseFloat(a - b));
             a = parseFloat(a - b);
             numero = a;
@@ -124,7 +151,7 @@ export default function Calculadora() {
                 </div>
                 <div class="numeros flex flex-row justify-between w-4/5 m-1">
                     <button onClick={event => agregarNumero(event, "0")} id="0" class="btn w-1/5 rounded-box " name='0' value={0}>0</button>
-                    <button onClick={event => agregarNumero(event, "punto")} id="punto" class="btn w-1/5 rounded-box " name='.' value={"."}>.</button>                    
+                    <button onClick={event => agregarNumero(event, "punto")} id="punto" class="btn w-1/5 rounded-box " name='.' value={"."}>.</button>
                     <button onClick={event => calcularTotal(event, "igual")} id="igual" class="btn bg-fuchsia-900 w-1/5 rounded-box " name='=' value={"="}>=</button>
                     <button onClick={event => agregarOperacion(event, "mas")} id="mas" class="btn bg-purple-900 w-1/5 rounded-box " name='+' value={"+"}>+</button>
                 </div>
