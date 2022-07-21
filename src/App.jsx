@@ -5,24 +5,24 @@ import './index.css';
 export function App() {
 
     const cambiarTema = () => {
-        if(document.getElementById("tema").getAttribute("data-theme")==="dark"){
-            document.getElementById("tema").setAttribute("data-theme", "valentine");                      
-            document.getElementById("pantalla").classList.remove("text-white");            
-            document.getElementById("pantalla").classList.add("text-black");
-            document.getElementById("contPantalla").classList.remove("bg-black");            
-            document.getElementById("contPantalla").classList.add("bg-green-100");
-            
-        }else{
+        if(document.getElementById("tema").getAttribute("data-theme")==="valentine"){            
             document.getElementById("tema").setAttribute("data-theme", "dark");                      
             document.getElementById("pantalla").classList.remove("text-black");  
             document.getElementById("pantalla").classList.add("text-white");            
             document.getElementById("contPantalla").classList.remove("bg-green-100");            
             document.getElementById("contPantalla").classList.add("bg-black");
+            
+        }else{
+            document.getElementById("tema").setAttribute("data-theme", "valentine");                      
+            document.getElementById("pantalla").classList.remove("text-white");            
+            document.getElementById("pantalla").classList.add("text-black");
+            document.getElementById("contPantalla").classList.remove("bg-black");            
+            document.getElementById("contPantalla").classList.add("bg-green-100");
         }
     }
 
     return (
-        <html id="tema" data-theme="dark">
+        <html id="tema" data-theme="valentine">
             <div class="flex flex-col justify-center items-center w-screen h-screen">                
             <label class="swap swap-rotate">
                     <input onClick={cambiarTema} type="checkbox" />
